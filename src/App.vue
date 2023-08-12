@@ -22,7 +22,9 @@ import SearchIcon from './components/icons/IconSearch.vue'
                 > -->
             </div>
             <div class="right">
-                <CloseIcon class="icon close" />
+                <button class="close-button" ref="closeBtn">
+                    <CloseIcon class="icon close" />
+                </button>
             </div>
         </div>
 
@@ -165,6 +167,10 @@ export default defineComponent({
                 ;(this.$refs.searchBox as HTMLInputElement).focus()
             }
         }
+
+        this.$refs.closeBtn.addEventListener('click', () => {
+            (window as any).webkit.messageHandlers.callbackHandler.postMessage('close')
+        });
     }
 })
 </script>
@@ -172,4 +178,14 @@ export default defineComponent({
 <style scoped lang="scss">
 @import './assets/css/app.scss';
 @import './assets/css/icons.scss';
+
+.close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: none;
+    -webkit-tap-highlight-color: transparent;
+  }
 </style>
