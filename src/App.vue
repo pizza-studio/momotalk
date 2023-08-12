@@ -15,7 +15,7 @@ import SearchIcon from './components/icons/IconSearch.vue'
         <div id="header">
             <div class="left">
                 <MomoIcon class="icon momo" />
-                <span class="header-title">MomoTalk</span>
+                <span class="header-title">MomoTalk+</span>
                 <!-- <RouterLink to="/help"><button class="help">?</button></RouterLink> -->
                 <!-- <a href="https://github.com/U1805/momotalk/blob/main/README-zh.md"
                     ><button class="help">?</button></a
