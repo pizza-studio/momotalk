@@ -168,7 +168,8 @@ export default defineComponent({
             }
         }
 
-        this.$refs.closeBtn.addEventListener('click', () => {
+        const closeBtn = this.$refs.closeBtn as HTMLElement;
+        closeBtn.addEventListener('click', () => {
             (window as any).webkit.messageHandlers.callbackHandler.postMessage('close')
         });
     }
