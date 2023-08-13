@@ -51,26 +51,16 @@ import SearchIcon from './components/icons/IconSearch.vue'
             <div id="listheader">
                 <div class="group">
                     <SearchIcon class="icon search" />
-                    <input
-                        placeholder="Type / to search"
-                        type="text"
-                        class="search-text"
-                        v-model="searchText"
-                        ref="searchBox"
-                    />
+                    <input placeholder="Type / to search" type="text" class="search-text" v-model="searchText"
+                        ref="searchBox" />
                 </div>
                 <div class="search-button" @click="exchangeList">
                     <ListIcon class="icon list" />
                 </div>
             </div>
             <div id="listbody">
-                <div
-                    class="list-item"
-                    v-for="(item, index) in database"
-                    :key="index"
-                    :class="{ active: index == currentStudent }"
-                    @click="selectStudent(item, index)"
-                >
+                <div class="list-item" v-for="(item, index) in database" :key="index"
+                    :class="{ active: index == currentStudent }" @click="selectStudent(item, index)">
                     <div>
                         <div class="avatar" v-for="(avatar, idx) in item.Avatar" @click="update(item)">
                             <img :src="avatar" v-if="idx == item.cnt" />
@@ -121,11 +111,16 @@ export default defineComponent({
                 domtoimage
                     .toPng(node, { width, height })
                     .then(function (dataUrl: string) {
-                        (window as any).webkit.messageHandlers.downloadImage.postMessage(dataUrl);
+                        try {
+                            (window as any).webkit.messageHandlers.downloadImage.postMessage(dataUrl);
+                        } catch (error) {
+                            console.log(error);
+                        }
                         const link = document.createElement('a')
                         link.download = `Momotalk-${Date.now()}.png`
                         link.href = dataUrl
                         link.click()
+                        alert('保存图片成功!')
                     })
                     .catch(function (error: Error) {
                         console.error('oops, screenshot went wrong!', error)
@@ -147,7 +142,7 @@ export default defineComponent({
             })
         },
         exchangeList() {
-            ;(this.database as any) = this.database[0].Id == 10000 ? data_ : data
+            ; (this.database as any) = this.database[0].Id == 10000 ? data_ : data
         },
         update(item: myStudent) {
             item.cnt = (item.cnt + 1) % item.Avatar.length
@@ -165,7 +160,7 @@ export default defineComponent({
     mounted() {
         document.onkeyup = (e) => {
             if (e.key == '/') {
-                ;(this.$refs.searchBox as HTMLInputElement).focus()
+                ; (this.$refs.searchBox as HTMLInputElement).focus()
             }
         }
 
@@ -189,5 +184,5 @@ export default defineComponent({
     outline: none;
     transition: none;
     -webkit-tap-highlight-color: transparent;
-  }
+}
 </style>
