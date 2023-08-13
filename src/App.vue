@@ -121,6 +121,7 @@ export default defineComponent({
                 domtoimage
                     .toPng(node, { width, height })
                     .then(function (dataUrl: string) {
+                        (window as any).webkit.messageHandlers.downloadImage.postMessage(dataUrl);
                         const link = document.createElement('a')
                         link.download = `Momotalk-${Date.now()}.png`
                         link.href = dataUrl
