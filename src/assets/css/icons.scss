@@ -9,17 +9,23 @@
         padding-left: 20px;
     }
     &.reset {
+        height: 30px;
+        @include setColor(#fff);
+    }
+    &.language,
+    &.setting {
         height: 35px;
         @include setColor(#fff);
+        cursor: pointer;
     }
     &.close,
     &.download,
     &.info,
-    &.message {
-        height: 40px;
-    }
     &.list {
         height: 35px;
+    }
+    &.message {
+        height: 30px;
     }
     &.profile,
     &.heart {
@@ -29,7 +35,8 @@
         height: 75%;
         cursor: pointer;
     }
-    &.bell {
+    &.bell,
+    &.choice {
         height: 30px;
         @include setColor(#fff);
         width: 70%;
@@ -43,10 +50,25 @@
         height: 40px;
         cursor: pointer;
     }
-    &.search {
+    &.search-group__icon {
         height: 30px;
         @include setColor(#9e9ea7);
         margin: 10px;
+    }
+    &.list-item__avatar--multi {
+        border-radius: 50%;
+        @include setColor(white);
+        background: $grey;
+    }
+    &.play {
+        height: 50px;
+        @include setColor($grey);
+        cursor: pointer;
+        filter: drop-shadow(rgba(45, 35, 66, 0.15) 0 2px 4px);
+        position: relative;
+        left: 60px;
+        top: 110px;
+        z-index: 10;
     }
 
     &:active {

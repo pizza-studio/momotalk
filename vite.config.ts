@@ -3,13 +3,19 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import pxtovw from 'postcss-px-to-viewport'
+import topLevelAwait from "vite-plugin-top-level-await";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
+    topLevelAwait({
+      // The export name of top-level await promise for each chunk module
+      promiseExportName: "__tla",
+      // The function to generate import names of top-level await promise in each chunk module
+      promiseImportName: i => `__tla_${i}`
+    })
   ],
   resolve: {
     alias: {
@@ -27,18 +33,5 @@ export default defineConfig({
         additionalData: '@import "@/assets/css/mixin.scss";'
       }
     },
-    postcss: {
-      plugins: [
-        pxtovw({
-          viewportWidth: 1627,
-          viewportHeight: 1002,
-          unitPrecision: 3,               // (Number) The decimal numbers to allow the REM units to grow to. 
-          virwportUnit: 'vw',             // (String) Expected units. 
-          selectorBlackList: ['.ignore'], // (Array) The selectors to ignore and leave as px. 
-          minPixelVlaue: 1,               // (Number) Set the minimum pixel value to replace. 
-          mediaQuery: false,
-        })
-      ]
-    }
   }
 })

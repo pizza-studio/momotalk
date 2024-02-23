@@ -1,7 +1,7 @@
-$view-height: 75vh;
-$view-width: 80vw;
+// $view-height: 80vh;
+// $view-width: 80vw;
 $header-height: 60px;
-$sider-width: 100px;
+$sider-width: 75px;
 $listheader-height: 75px;
 $chatfooter-height: 120px;
 
@@ -10,6 +10,7 @@ $background: '/BG_MainOffice.jpg';
 $font-black: #2a323e;
 $font-grey: #87929e;
 $pink: rgb(252, 150, 171);
+$blue: #3493f9;
 $pink-pale: #fed4de;
 $grey: #4b5a6f;
 $grey-active: #68788f;
@@ -19,20 +20,53 @@ $inputbar-color: #eeeeee;
 $chaticon-color: rgb(189, 189, 189);
 $chatborder-color: #cdd3dc;
 
+:root {
+    /* 聊天背景 */
+    --theme_bg_color: white;
+    /* 顶部栏 */
+    --theme_title_color: rgb(252, 150, 171);
+    /* 发送栏 */
+    --theme_send_bar_color: #eeeeee;
+    --view-height: 80vh;
+    --view-width: 80vw;
+}
+
+.momotalk {
+    --theme_bg_color: white;
+    --theme_title_color: rgb(252, 150, 171);
+    --theme_send_bar_color: #eeeeee;
+}
+
+.yuzutalk {
+    --theme_bg_color: rgb(255, 247, 225);;
+    --theme_title_color: rgb(255, 220, 66);
+    --theme_send_bar_color: rgb(247, 247, 247);
+}
+
+.not-full-screen {
+    --view-height: 80vh;
+    --view-width: 80vw;
+}
+
+.full-screen {
+    --view-height: 100vh;
+    --view-width: 100vw;
+}
+
 @mixin font-heavy($size) {
     font-size: $size;
-    font-family: sans-serif;
+    font-family: 'Blueaka', sans-serif;
     font-weight: 1000;
 }
 @mixin font-regular($size) {
     font-size: $size;
-    font-family: sans-serif;
+    font-family: 'Blueaka', sans-serif;
     font-weight: 600;
 }
 
 @mixin font-light($size) {
     font-size: $size;
-    font-family: sans-serif;
+    font-family: 'Blueaka', sans-serif;
     font-weight: 300px;
 }
 
@@ -77,4 +111,14 @@ $chatborder-color: #cdd3dc;
     margin: 0px -5px 0px 10px;
     fill: currentColor;
     color: rgba(0, 0, 0, 0.26);
+}
+
+.vuepress-markdown-body{
+    background-color: var(--theme_bg_color) !important;
+
+    img{
+        width: 100%;
+        border: 2px solid $chatborder-color;
+        border-radius: 20px;
+    }
 }
