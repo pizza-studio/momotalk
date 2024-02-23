@@ -212,6 +212,7 @@ export default defineComponent({
             (window as any).webkit.messageHandlers.callbackHandler.postMessage('close')
         });
     }
+}
 store.getData()
 
 // student data
