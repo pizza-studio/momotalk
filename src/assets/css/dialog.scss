@@ -17,3 +17,9 @@
     overflow: hidden;
     min-height: 250px;
 }
+
+@media (prefers-color-scheme: dark) {
+    .dialog-box {
+        background: #333;
+    }
+}

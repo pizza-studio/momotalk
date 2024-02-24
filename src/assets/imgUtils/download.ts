@@ -14,18 +14,22 @@ const download = () => {
         domtoimage
             .toPng(node, { width, height })
             .then(function (dataUrl: string) {
+                try {
+                    (window as any).webkit.messageHandlers.downloadImage.postMessage(dataUrl);
+                } catch (error) {
+                    console.log(error);
+                }
                 const link = document.createElement('a')
                 link.download = `Momotalk-${Date.now()}.png`
                 link.href = dataUrl
                 link.click()
+                alert('保存图片成功!')
             })
             .catch(function (error: Error) {
                 console.error('oops, screenshot went wrong!', error)
             })
             .finally(function () {
-                // 恢复滚动功能
-                node.setAttribute('style', 'overflow-y:scroll')
-                indicator.setAttribute('style', '')
+                node.setAttribute('style', 'overflow-y:scroll') // 恢复滚动功能
             })
     }
 }

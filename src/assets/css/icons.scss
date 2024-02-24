@@ -5,21 +5,30 @@
 
 .icon {
     &.momo {
-        height: 25px;
-        padding-left: 20px;
+        height: 35px;
+        padding-left: 10px;
     }
     &.reset {
         height: 30px;
         @include setColor(#fff);
     }
-    &.language,
-    &.setting {
+    &.language {
         height: 35px;
         @include setColor(#fff);
         cursor: pointer;
     }
-    &.close,
-    &.download,
+    &.setting {
+        height: 35px;
+        @include setColor(#fff);
+        cursor: pointer;
+        padding-right: 20px;
+    }
+    &.close {
+        height: 35px;
+        @include setColor(#fff);
+        cursor: pointer;
+    }
+    &.download；
     &.info,
     &.list {
         height: 35px;

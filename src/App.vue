@@ -10,6 +10,7 @@ import SearchIcon from './components/icons/IconSearch.vue'
 import LanguageIcon from './components/icons/IconLanguage.vue'
 import PlayerDialog from '@/components/PlayerWindow.vue'
 import SettingDialog from '@/components/SettingWindow.vue'
+import CloseIcon from './components/icons/IconClose.vue'
 </script>
 
 <template>
@@ -19,16 +20,15 @@ import SettingDialog from '@/components/SettingWindow.vue'
         <div id="header">
             <div id="header__left">
                 <MomoIcon class="icon momo" />
-                <span class="header-title">MomoTalk+</span>
+                <span id="header__title">MomoTalk+</span>
                 <!-- <RouterLink to="/help"><button class="help">?</button></RouterLink> -->
-                <!-- <a href="https://github.com/U1805/momotalk/blob/main/README-zh.md"
+                <!-- <a href="https://github.com/Pizza-Studio/momotalk/blob/main/README-zh.md"
                     ><button class="help">?</button></a
                 > -->
             </div>
-            <div class="right">
-                <button class="close-button" ref="closeBtn">
-                    <CloseIcon class="icon close" />
-                </button>
+            <div id="header__right">
+                <SettingIcon class="icon setting" @click="store.showSettingDialog = true" />
+                <CloseIcon class="icon close" @click="closeWindow"/>
             </div>
         </div>
 
@@ -56,10 +56,15 @@ import SettingDialog from '@/components/SettingWindow.vue'
 
         <div id="listcard">
             <div id="listheader">
-                <div class="group">
-                    <SearchIcon class="icon search" />
-                    <input placeholder="Type / to search" type="text" class="search-text" v-model="searchText"
-                        ref="searchBox" />
+                <div class="search-group">
+                    <SearchIcon class="icon search-group__icon" />
+                    <input
+                        type="text"
+                        placeholder="Type / to search"
+                        class="search-group__text"
+                        v-model="searchText"
+                        id="searchBox"
+                    />
                 </div>
                 <div
                     class="student-list__button"
@@ -128,92 +133,11 @@ import { store } from '@/assets/storeUtils/store'
 import { talkHistory } from '@/assets/storeUtils/talkHistory'
 import { search } from './assets/utils/search'
 
-export default defineComponent({
-    props: {},
-    data() {
-        return {
-            store,
-            student: {},
-            currentStudent: -1,
-            database: data,
-            searchText: ''
-        }
-    },
-    methods: {
-        selectStudent(item: any, index: number) {
-            this.student = item
-            // this.store.pushStudent(item)
-            this.currentStudent = index
-        },
-        download() {
-            var node = document.getElementsByClassName('talk-list')[0]
-            node.setAttribute('style', 'overflow-y:hidden') // 隐藏截图的滚动条
-            var width = node.clientWidth
-            var height = node.scrollHeight
-            if (width && height) {
-                domtoimage
-                    .toPng(node, { width, height })
-                    .then(function (dataUrl: string) {
-                        try {
-                            (window as any).webkit.messageHandlers.downloadImage.postMessage(dataUrl);
-                        } catch (error) {
-                            console.log(error);
-                        }
-                        const link = document.createElement('a')
-                        link.download = `Momotalk-${Date.now()}.png`
-                        link.href = dataUrl
-                        link.click()
-                        alert('保存图片成功!')
-                    })
-                    .catch(function (error: Error) {
-                        console.error('oops, screenshot went wrong!', error)
-                    })
-                    .finally(function () {
-                        node.setAttribute('style', 'overflow-y:scroll') // 恢复滚动功能
-                    })
-            }
-        },
-        search() {
-            // https://www.cnblogs.com/caozhenfei/p/14882122.html
-            let text = this.searchText.toLowerCase()
-            let reg = new RegExp(text)
-            this.database = data.filter((item) => {
-                if (reg.test(item.Name)) return item
-                else if (item.Nickname)
-                    // 遍历别名
-                    for (let nickname of item.Nickname) if (reg.test(nickname.toLowerCase())) return item
-            })
-        },
-        exchangeList() {
-            ; (this.database as any) = this.database[0].Id == 10000 ? data_ : data
-        },
-        update(item: myStudent) {
-            item.cnt = (item.cnt + 1) % item.Avatar.length
-            for (var selectItem of this.store.selectList) {
-                if (selectItem.Id == item.Id) selectItem.cnt = item.cnt
-            }
-            this.store.setData()
-        }
-    },
-    watch: {
-        searchText() {
-            this.search()
-        }
-    },
-    mounted() {
-        document.onkeyup = (e) => {
-            if (e.key == '/') {
-                ; (this.$refs.searchBox as HTMLInputElement).focus()
-            }
-        }
-
-        const closeBtn = this.$refs.closeBtn as HTMLElement;
-        closeBtn.addEventListener('click', () => {
-            (window as any).webkit.messageHandlers.callbackHandler.postMessage('close')
-        });
-    }
-}
 store.getData()
+
+const closeWindow = () => {
+    (window as any).webkit.messageHandlers.callbackHandler.postMessage('close')
+}
 
 // student data
 const database = ref<studentInfo[][]>(await getStudents(store.language))
@@ -314,18 +238,8 @@ document.onkeyup = (e) => {
 </script>
 
 <style scoped lang="scss">
-@import './assets/css/app.scss';
-@import './assets/css/icons.scss';
 
-.close-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-    transition: none;
-    -webkit-tap-highlight-color: transparent;
-}
+
 @import './app.scss';
 @import '@/assets/css/icons.scss';
 

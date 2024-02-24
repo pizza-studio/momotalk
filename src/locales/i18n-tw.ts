@@ -53,7 +53,7 @@ export default {
 
 - 選擇身份：前四項「**老師**」「**羈絆劇情框**」「**回覆**」「**系統訊息**」，最後一個按鈕用於**添加自訂角色** 
 - 老師/學生身份，點擊頭像可發送遊戲中的**聊天室貼圖**和**角色表情差分**
-- 透過[類似 markdown 的語法](https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md#%EF%B8%8F-%E7%BC%96%E8%BE%91%E6%B6%88%E6%81%AF--edit-messages)可以發送一些特殊的文字樣式
+- 透過[類似 markdown 的語法](https://github.com/Pizza-Studio/momotalk/blob/main/docs/How-to-use.md#%EF%B8%8F-%E7%BC%96%E8%BE%91%E6%B6%88%E6%81%AF--edit-messages)可以發送一些特殊的文字樣式
 
 ![](./img/stickers.webp)
 ![](./img/sendbar.webp)
@@ -77,7 +77,7 @@ export default {
 
 本應用適配移動端，但是因能力有限，基本上是瀏覽功能，更建議使用電腦 💻📱
 
-如果發現有遺漏或錯誤，歡迎提 [issue](https://github.com/U1805/momotalk/issues) 或 [pr](https://github.com/U1805/momotalk/pulls) 補充，當然對功能和代碼的好想法和優化也歡迎提出 ❤️
+如果發現有遺漏或錯誤，歡迎提 [issue](https://github.com/Pizza-Studio/momotalk/issues) 或 [pr](https://github.com/Pizza-Studio/momotalk/pulls) 補充，當然對功能和代碼的好想法和優化也歡迎提出 ❤️
 
 ![](./img/kyk.gif)
 `

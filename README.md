@@ -1,10 +1,10 @@
 <h1 align="center">Momotalk Editor</h1>
 
 <div align="center">
-    <img src="https://img.shields.io/github/last-commit/u1805/momotalk/main">
-    <img src="https://img.shields.io/github/languages/top/U1805/momotalk" >
-    <a href="https://star-history.com/#U1805/momotalk"> 
-      <img src="https://img.shields.io/github/stars/U1805/momotalk" alt="stars"> 
+    <img src="https://img.shields.io/github/last-commit/Pizza-Studio/momotalk/main">
+    <img src="https://img.shields.io/github/languages/top/Pizza-Studio/momotalk" >
+    <a href="https://star-history.com/#Pizza-Studio/momotalk"> 
+      <img src="https://img.shields.io/github/stars/Pizza-Studio/momotalk" alt="stars"> 
     </a>
 </div>
 
@@ -46,7 +46,7 @@
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=U1805/momotalk)](https://star-history.com/#U1805/momotalk)
+[![Star History Chart](https://api.star-history.com/svg?repos=Pizza-Studio/momotalk)](https://star-history.com/#Pizza-Studio/momotalk)
 
 ## Credits
 

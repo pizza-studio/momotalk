@@ -54,7 +54,7 @@ Below the sidebar, there are three buttons: "**Switch Language**," "**Reset**," 
 
 - Select Identity: The first four options are "**Teacher**," "**Story Event**," "**Reply**," and "**System Message**." The last button is used to **add custom characters**.
 - For Teachers/Students, clicking on the avatar sends in-game **chat stickers** and **student face variations images**.
-- You can use [a syntax similar to markdown](https://github.com/U1805/momotalk/blob/main/docs/How-to-use.md#%EF%B8%8F-%E7%BC%96%E8%BE%91%E6%B6%88%E6%81%AF--edit-messages) to send some special text styles.
+- You can use [a syntax similar to markdown](https://github.com/Pizza-Studio/momotalk/blob/main/docs/How-to-use.md#%EF%B8%8F-%E7%BC%96%E8%BE%91%E6%B6%88%E6%81%AF--edit-messages) to send some special text styles.
 
 ![](./img/stickers.webp)
 ![](./img/sendbar.webp)
@@ -78,7 +78,7 @@ Below the sidebar, there are three buttons: "**Switch Language**," "**Reset**," 
 
 This application is compatible with mobile devices, but due to limited capabilities, it's recommend to use on computers 💻📱.
 
-If you find any omissions or errors, **feel free to submit an [issue](https://github.com/U1805/momotalk/issues) or [pull request](https://github.com/U1805/momotalk/pulls)**. Of course, we welcome ideas and optimizations for functionality and code ❤️.
+If you find any omissions or errors, **feel free to submit an [issue](https://github.com/Pizza-Studio/momotalk/issues) or [pull request](https://github.com/Pizza-Studio/momotalk/pulls)**. Of course, we welcome ideas and optimizations for functionality and code ❤️.
 
 ![](./img/kyk.gif)
 `

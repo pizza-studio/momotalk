@@ -1,4 +1,14 @@
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1200px){
+    #root {
+        zoom: 0.6;
+    }
+
+    .dialog-mask {
+        zoom: 0.5;
+    }
+}
+
+@media screen and (max-width: 540px) {
     #root {
         grid-template-columns: 100vw 100vw;
         grid-template-rows: $header-height 1fr $sider-width;
@@ -40,7 +50,7 @@
     }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 540px) {
     .talk-wrapper {
         width: 100vw;
     }

@@ -7,7 +7,7 @@ export const store = reactive({
     language: 'zh',
     theme: 'momotalk',
     fullScreen: false,
-    draggable: window.matchMedia('(max-width: 1150px)').matches,
+    draggable: window.matchMedia('(max-width: 540px)').matches,
     apikey: '',
     host: 'https://api.openai.com/v1/chat/completions',
 
@@ -40,7 +40,7 @@ export const store = reactive({
         this.apikey    = data[1] != null ? JSON.parse(data[1]) : ''
         this.host      = data[2] != null ? JSON.parse(data[2]) : 'https://api.openai.com/v1/chat/completions'
         this.theme     = data[3] != null ? JSON.parse(data[3]) : 'momotalk'
-        this.draggable = data[4] != null ? JSON.parse(data[4]) : window.matchMedia('(max-width: 1150px)').matches
+        this.draggable = data[4] != null ? JSON.parse(data[4]) : window.matchMedia('(max-width: 540px)').matches
         this.fullScreen = data[5] != null ? JSON.parse(data[5]) : false
     },
     resetData() {

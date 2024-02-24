@@ -61,8 +61,8 @@ const changeTheme = () => {
                         <button @click="importJson">{{ $t('importButton') }}</button><br />
                     </p>
                     <p class="dialog-content">
-                        <a href="https://github.com/U1805/momotalk" class="icon-github" title="GITHUB"><IconGithub /></a>
-                        <a href="https://github.com/U1805/momotalk/blob/main/docs/update_log.md" class="icon-log" title="LOG"><IconLog /></a>
+                        <a href="https://github.com/Pizza-Studio/momotalk" class="icon-github" title="GITHUB"><IconGithub /></a>
+                        <a href="https://github.com/Pizza-Studio/momotalk/blob/main/docs/update_log.md" class="icon-log" title="LOG"><IconLog /></a>
                     </p>
                 </div>
                 <div class="page">
@@ -82,8 +82,8 @@ const changeTheme = () => {
                         <label>{{ $t('clickToStart') }}</label>
                     </p>
                     <p class="dialog-content">
-                        <a href="https://github.com/U1805/momotalk" class="icon-github" title="GITHUB"><IconGithub /></a>
-                        <a href="https://github.com/U1805/momotalk/blob/main/docs/update_log.md" class="icon-log" title="LOG"><IconLog /></a>
+                        <a href="https://github.com/Pizza-Studio/momotalk" class="icon-github" title="GITHUB"><IconGithub /></a>
+                        <a href="https://github.com/Pizza-Studio/momotalk/blob/main/docs/update_log.md" class="icon-log" title="LOG"><IconLog /></a>
                         <a href="./Arona" title="talk to A.R.O.N.A"><img class="arona-chat" src="/Arona.webp"></a>
                     </p>
                 </div>
